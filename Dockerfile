@@ -1,10 +1,10 @@
-FROM alpine:3.5
+FROM ubuntu:22.04
 MAINTAINER vitr <vit@vitr.dev>
-RUN apk add --update --no-cache python3 git openssh-client && \
-	python3 -m ensurepip && \
-    pip3 install --upgrade pip && \
-    pip3 install --upgrade --user awsebcli && \
-    export PATH=~/.local/bin:$PATH
+
+RUN apt-get update
+RUN apt-get install -y python3-pip
+RUN pip install "pyyaml<5.4"
+RUN pip install awsebcli
 
 ENV PATH /root/.local/bin:$PATH
 ENTRYPOINT ["eb"]
