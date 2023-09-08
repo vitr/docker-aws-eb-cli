@@ -11,3 +11,5 @@ ENV PATH /root/.local/bin:$PATH
 ENTRYPOINT ["eb"]
 VOLUME ["/aws"]
 WORKDIR /aws
+
+RUN git config --global --add safe.directory /aws
