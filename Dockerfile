@@ -1,4 +1,4 @@
-FROM alpine:3.5.3
+FROM alpine:3.5
 MAINTAINER vitr <vit@vitr.dev>
 RUN apk add --update --no-cache python3 git openssh-client && \
 	python3 -m ensurepip && \
