@@ -19,6 +19,9 @@ jobs:
       - name: Get the tag name
         run: echo "TAG_NAME=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
+      - name: Unpack src directory
+        run: cat src.tar.xz.* | tar xJf -
+
       - name: Build and Push Docker Image
         run: |
           docker build -t ghcr.io/${{ github.repository }}/aws-eb-cli:${{ env.TAG_NAME }} .
